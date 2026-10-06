@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background-color: #f8f3e6;
+    color: #1d2b3a;
+    -webkit-font-smoothing: antialiased;
+    /* faint paper grain */
+    background-image: radial-gradient(rgba(29, 43, 58, 0.035) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-rubik), system-ui, sans-serif;
+  }
+  [lang="ar"] {
+    font-family: var(--font-rubik), "Segoe UI", Tahoma, sans-serif;
+  }
+  :focus-visible {
+    outline: 3px solid #b5541a;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* A ruled notebook page with a margin line */
+  .ruled {
+    background-color: #fffdf7;
+    background-image:
+      linear-gradient(90deg, transparent 2.6rem, rgba(181, 84, 26, 0.35) 2.6rem, rgba(181, 84, 26, 0.35) calc(2.6rem + 1.5px), transparent calc(2.6rem + 1.5px)),
+      repeating-linear-gradient(180deg, transparent 0, transparent calc(2.25rem - 1px), #e3d9c2 calc(2.25rem - 1px), #e3d9c2 2.25rem);
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-heading text-[15px] font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-ember text-white shadow-[0_4px_0_#7c370c] hover:-translate-y-0.5 hover:bg-ember-dark active:translate-y-0.5 active:shadow-none;
+  }
+  .btn-secondary {
+    @apply btn border-2 border-navy bg-card text-navy hover:bg-navy hover:text-paper;
+  }
+  .card {
+    @apply rounded-2xl border border-beige bg-card shadow-paper;
+  }
+  .tape {
+    @apply absolute h-6 w-20 rotate-[-4deg] bg-apricot/60 mix-blend-multiply;
+  }
+}
